@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import WeatherInformation from './weather-information';
 import ChangeCityButtons from './change-city-buttons';
-import './weather-widget.css'
+import './weather-widget.pcss'
 
 const cities = {
 	omsk: 1496153,
