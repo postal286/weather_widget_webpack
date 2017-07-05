@@ -2,14 +2,16 @@ const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const precss = require('precss');
+const merge = require('webpack-merge');
 
-module.exports = {
+const common = {
 
     context: path.resolve(__dirname, "src"),
+
     entry: './index',
 
     output: {
-        filename: 'app.js',
+        filename: 'js/app.js',
         path: path.resolve(__dirname, 'public')
     },
 
@@ -21,11 +23,6 @@ module.exports = {
             },
             comments: false,
             sourceMap: false
-        }),
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify('production')
-            }
         })
     ],
 
@@ -61,13 +58,15 @@ module.exports = {
                         options: {
                             plugins: () => [autoprefixer({browsers: ['last 2 versions']}), precss]
                         }
-                    }]
+                    }
+                ]
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
-                use: [
-                    'file-loader'
-                ]
+                loader: 'file-loader',
+                options: {
+                    name: 'img/[name].[ext]'
+                }
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
@@ -76,6 +75,26 @@ module.exports = {
                 ]
             }
         ]
+
+    }
+};
+
+const development = {
+  devServer: {
+      stats: 'errors-only',
+      port: 9000
+  }
+};
+
+module.exports = (env) => {
+    if (env === 'production') {
+        return common;
+    }
+    if (env === 'development') {
+        return merge([
+            common,
+            development
+        ])
     }
 };
 

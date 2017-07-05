@@ -42,7 +42,7 @@ export default class ChangeCityButtons extends Component {
 				key={index}
 				index={index}
 				data={data}
-				isActive={this.state.index === index ? ' w_w_current' : ''}
+				isActive={this.state.index === index ? ' weather-widget__current-city' : ''}
 				changeCityForecast={this.changeCityForecast}
 			/>
 		);
