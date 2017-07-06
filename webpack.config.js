@@ -20,11 +20,16 @@ const common = {
             minimize: true,
             compress: {
                 warnings: false
-            },
+        },
             comments: false,
             sourceMap: false
+        }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production')
+            }
         })
-    ],
+		],
 
     module: {
         rules: [

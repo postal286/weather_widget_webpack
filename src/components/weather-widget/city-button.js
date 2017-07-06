@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 export default class CityButton extends Component {
 
@@ -35,6 +35,6 @@ export default class CityButton extends Component {
 			>
 				{this.props.data.name}
 			</a>
-		)
+		);
 	}
 }

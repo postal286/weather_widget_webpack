@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 
-import WeatherWidget from './components/weather-widget/index'
+import WeatherWidget from "./components/weather-widget/index";
 
 export default class App extends Component {
 	render() {

@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import _ from 'lodash';
+import React, {Component} from "react";
+import _ from "lodash";
 
-import CityButton from './city-button';
+import CityButton from "./city-button";
 
 export default class ChangeCityButtons extends Component {
 
@@ -42,7 +42,7 @@ export default class ChangeCityButtons extends Component {
 				key={index}
 				index={index}
 				data={data}
-				isActive={this.state.index === index ? ' weather-widget__current-city' : ''}
+				isActive={this.state.index === index ? " weather-widget__current-city" : ""}
 				changeCityForecast={this.changeCityForecast}
 			/>
 		);
@@ -51,6 +51,6 @@ export default class ChangeCityButtons extends Component {
 			<div className="weather-widget__buttons-wrapper">
 				{buttons}
 			</div>
-		)
+		);
 	}
 }

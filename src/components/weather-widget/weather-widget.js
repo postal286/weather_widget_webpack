@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import axios from 'axios';
+import React, {Component} from "react";
+import axios from "axios";
 
 
-import WeatherInformation from './weather-information';
-import ChangeCityButtons from './change-city-buttons';
-import './weather-widget.pcss'
+import WeatherInformation from "./weather-information";
+import ChangeCityButtons from "./change-city-buttons";
+import "./weather-widget.pcss";
 
 const cities = {
 	omsk: 1496153,
@@ -12,7 +12,7 @@ const cities = {
 	newYork: 5128638
 };
 
-const API_KEY = '553baeedbafd8c0df291c4dad4e03fc1';
+const API_KEY = "553baeedbafd8c0df291c4dad4e03fc1";
 const query = `http://api.openweathermap.org/data/2.5/group?id=${cities.omsk},${cities.moscow},${cities.newYork}&units=metric`;
 
 export class WeatherWidget extends Component {
@@ -37,7 +37,7 @@ export class WeatherWidget extends Component {
 		return this.props !== nextProps || JSON.stringify(this.state.data) !== JSON.stringify(nextState.data) || this.state.index !== nextState.index;
 	}
 
-    componentWillUnmount() {
+	componentWillUnmount() {
 		clearInterval(this.timer);
 	}
 
@@ -47,12 +47,12 @@ export class WeatherWidget extends Component {
 			{
 				params: {
 					appid: API_KEY,
-					lang: 'ru',
-					units: 'metric'
+					lang: "ru",
+					units: "metric"
 				}
 			})
 			.then(({ data })=> {
-			this.setState({
+				this.setState({
 					data: data.list
 				});
 			})
@@ -64,17 +64,17 @@ export class WeatherWidget extends Component {
 	changeCity(index) {
 		this.setState({
 			index: index
-		})
+		});
 	}
 
 	render() {
 
 		let {data} = this.state,
 			component,
-			errorTitleStyle = {textAlign: 'center'};
+			errorTitleStyle = {textAlign: "center"};
 
 		if (data === null) {
-			component = <h1 style={errorTitleStyle}>Something goes wrong</h1>
+			component = <h1 style={errorTitleStyle}>Something goes wrong</h1>;
 		} else {
 
 			component =
@@ -90,7 +90,7 @@ export class WeatherWidget extends Component {
 						index={this.state.index}
 						data={this.state.data[this.state.index]}
 					/>
-				</div>
+				</div>;
 		}
 
 		return (

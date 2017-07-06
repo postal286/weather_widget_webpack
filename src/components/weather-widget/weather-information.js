@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 
 export default class WeatherInformation extends Component {
 
@@ -8,7 +8,7 @@ export default class WeatherInformation extends Component {
 		this.state = {
 			index: props.index,
 			data: props.data
-		}
+		};
 	}
 
 	componentWillReceiveProps(nextProps){
